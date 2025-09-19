@@ -1,0 +1,19 @@
+[package] 
+name = "pointgroup_ops"
+version = "1.0"
+
+[package.build] 
+backend = { name = "pixi-build-python", version = "*" }
+
+[package.host-dependencies]
+ninja = "*"
+python = "3.12.*"
+setuptools = "*"
+google-sparsehash = {version = "*", channel = "bioconda"}
+cuda = "*"
+pytorch-gpu = "*"
+
+[package.run-dependencies]
+google-sparsehash = {version = "*", channel = "bioconda"}
+cuda = "*"
+pytorch-gpu = "*"

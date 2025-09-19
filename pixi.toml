@@ -1,0 +1,108 @@
+[workspace]
+name = "pointcept"
+version = "1.0.0"
+platforms = ["linux-64"]
+channels = ["conda-forge","bioconda", "pyg", "esri"]
+preview = ["pixi-build"]
+
+[system-requirements]
+cuda = "12.0"
+
+[dependencies]
+pointcept = { path = "." }
+cuda-version = "==12.6"
+pytorch-gpu = "==2.6.0"
+torchvision = "*"
+torchaudio = "*"
+pccm = { path = "libs/PCCM" }
+
+[pypi-dependencies]
+torch_geometric = "*"
+pyg_lib = "*" 
+torch_scatter = "*" 
+torch_sparse = "*" 
+torch_cluster = "*" 
+torch_spline_conv = "*"
+ocnn = {git = "https://github.com/octree-nn/ocnn-pytorch.git"}
+clip = {git = "https://github.com/openai/CLIP.git"}
+flash_attn = {git = "https://github.com/Dao-AILab/flash-attention.git"}
+ccimport = {version = ">=0.3.1"}
+pybind11 = {version = ">=2.6.0"}
+fire = {version = ">=0.7.0"}
+lark = {version = ">=1.0.0"}
+portalocker = {version = ">=2.3.2"}
+
+[pypi-options]
+index-url = "https://pypi.org/simple"
+no-build-isolation = ["flash_attn"]
+find-links = [{url = "https://data.pyg.org/whl/torch-2.6.0+cu126.html"}]
+
+[workspace.build-variants]
+cuda = ["12.0"]
+pytorch-gpu = [">=2.*"]
+python = ["3.11.*","3.12.*"]
+
+[package]
+name = {workspace = true}
+version = {workspace = true}
+
+[package.build] 
+backend = { name = "pixi-build-python", version = "*" }
+
+[package.host-dependencies]
+python = "*"
+setuptools = "*"
+setuptools-scm = "*"
+
+[package.run-dependencies]
+pointops = { path = "libs/pointops" }
+pointseg = { path = "libs/pointseg" }
+pointops2 = { path = "libs/pointops2" }
+pointgroup_ops = { path = "libs/pointgroup_ops" }
+spconv = { path = "libs/spconv" }
+cumm = { path = "libs/cumm" }
+cudnn = "*"
+torchvision="*"
+torchaudio="*"
+h5py = "*"
+pyyaml = "*"
+tensorboard = "*"
+tensorboardx = "*"
+wandb = "*"
+yapf = "*"
+addict = "*"
+einops = "*"
+scipy = "*"
+plyfile = "*"
+termcolor = "*"
+timm = "*"
+ftfy = "*"
+regex = "*"
+tqdm = "*"
+matplotlib = "*"
+black = "*"
+open3d = "*"
+
+
+# [feature.py313.system-requirements]
+# cuda = "12.0"
+
+# [feature.py313.dependencies]
+# python = "==3.13"
+# pytorch-gpu = "==2.6.0"
+# cuda-version = "==12.6"
+# pointops = { path = "libs/pointops" }
+
+# [feature.py312.system-requirements]
+# cuda = "12.0"
+
+# [feature.py312.dependencies]
+# python = "==3.12"
+# pytorch-gpu = "==2.6.0"
+# cuda-version = "==12.6"
+# pointops = { path = "libs/pointops" }
+
+
+# [environments]
+# py312 ={ features=["py312"], no-default-feature=true }
+# py313 = { features=["py313"] , no-default-feature=true}

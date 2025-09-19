@@ -1,0 +1,17 @@
+[package] 
+name = "pointseg"
+version = "1.0"
+
+[package.build] 
+backend = { name = "pixi-build-python", version = "*" }
+
+[package.host-dependencies]
+ninja = "*"
+python = "3.12.*"
+setuptools = "*"
+cuda = "*"
+pytorch-gpu = "*"
+
+[package.run-dependencies]
+cuda = "*"
+pytorch-gpu = "*"

@@ -1,0 +1,17 @@
+[package] 
+name = "pointops"
+version = "1.0"
+
+[package.build] 
+backend = { name = "pixi-build-python", version = "*" }
+
+[package.host-dependencies]
+ninja = "*"
+python = "3.12.*"
+setuptools = ">=41.0"
+cuda = "*"
+pytorch-gpu = "*"
+
+[package.run-dependencies]
+cuda = "*"
+pytorch-gpu = "*"

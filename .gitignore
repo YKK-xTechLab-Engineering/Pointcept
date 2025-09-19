@@ -14,3 +14,10 @@ outputs/
 */.DS_Store
 **/*.out
 Dockerfile
+
+
+dev_scripts/
+
+pixi.lock
+
+.pixi/
